@@ -29,9 +29,26 @@ def option():
         for i, e in enumerate(urls['fugitives']):
             print(f'{i} - {e[27:]}')
         chCategory = int(input())
+        print('Page downloading in proccess')
         ps.save(urls['fugitives'][chCategory])
-        scrape(f"fugitives/{urls['fugitives'][chCategory][27:]}")
-def scrape(dir):
+        scrape(f"fugitives/{urls['fugitives'][chCategory][27:]}", len(urls['fugitives'][chCategory]))
+    if category==1:
+        print('Select option: ')
+        for i, e in enumerate(urls['terrorism']):
+            print(f'{i} - {e[27:]}')
+        chCategory = int(input())
+        print('Page downloading in proccess')
+        ps.save(urls['terrorism'][chCategory])
+        scrape(f"terrorism/{urls['terrorism'][chCategory][27:]}", len(urls['terrorism'][chCategory]))
+    if category==2:
+        print('Select option: ')
+        for i, e in enumerate(urls['kidnapping']):
+            print(f'{i} - {e[27:]}')
+        chCategory = int(input())
+        print('Page downloading in proccess')
+        ps.save(urls['kidnapping'][chCategory])
+        scrape(f"kidnapping/{urls['kidnapping'][chCategory][27:]}", len(urls['kidnapping'][chCategory]))
+def scrape(dir,leng):
     dir1, dir2 = dir.split('/')
     if not os.path.isdir('files'):
         os.mkdir('files')
@@ -47,9 +64,15 @@ def scrape(dir):
     for i in people:
         purls.append((i.findNext().get('href'), i.findNext().text))
 
-    for url in purls:
+    for i, url in enumerate(purls):
         r = requests.get(url[0]+'/download.pdf')
-        with open(f'files/{dir}/{url[1]}.pdf', 'wb') as f:
+        u1 = url[1]
+        if '"' in u1:
+            u1=u1.replace('"','')
+        with open(f'files/{dir}/{u1}.pdf', 'wb') as f:
             f.write(r.content)
+            if (i+1) % 5 == 0:
+                print(f'{i+1} completed')
+    print('Success.')
 
 option()
