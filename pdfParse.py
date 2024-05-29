@@ -72,5 +72,3 @@ def scrape(dir,leng):
             if (i+1) % 5 == 0:
                 print(f'{i+1} completed')
     print('Success.')
-
-option()
