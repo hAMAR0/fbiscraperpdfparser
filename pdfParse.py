@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 import pagesaver as ps
 
 urls = {}
-urls['fugitives'] = ['https://www.fbi.gov/wanted/fugitives',
-                     'https://www.fbi.gov/wanted/cac',
+urls['fugitives'] = ['https://www.fbi.gov/wanted/cac',
                      'https://www.fbi.gov/wanted/murders',
                      'https://www.fbi.gov/wanted/additional',
                      'https://www.fbi.gov/wanted/cyber',
@@ -12,8 +11,7 @@ urls['fugitives'] = ['https://www.fbi.gov/wanted/fugitives',
                      'https://www.fbi.gov/wanted/counterintelligence',
                      'https://www.fbi.gov/wanted/cei',
                      'https://www.fbi.gov/wanted/human-trafficking']
-urls['terrorism'] = ['https://www.fbi.gov/wanted/terrorism',
-                     'https://www.fbi.gov/wanted/wanted_terrorists',
+urls['terrorism'] = ['https://www.fbi.gov/wanted/wanted_terrorists',
                      'https://www.fbi.gov/wanted/terrorinfo',
                      'https://www.fbi.gov/wanted/dt']
 urls['kidnapping'] = ['https://www.fbi.gov/wanted/kidnap',
