@@ -8,5 +8,7 @@ while True:
                   '3 - Exit\n'))
     if a == 0:
         pdfParse.option()
+    if a == 1:
+        jsonDump.choice()
     if a == 3:
         sys.exit()
