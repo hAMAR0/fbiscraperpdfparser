@@ -1,4 +1,4 @@
-import pdfParse, jsonDump, sys#, charts
+import pdfParse, jsonDump, sys, charts
 
 while True:
     a = int(input('Select option:\n'
@@ -10,5 +10,7 @@ while True:
         pdfParse.option()
     if a == 1:
         jsonDump.choice()
+    if a == 2:
+        charts.choice()
     if a == 3:
         sys.exit()
